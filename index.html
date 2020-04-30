@@ -6,21 +6,24 @@
 			color: white;
 			text-align: center;
 		}
+
 		.symbol{
-			width:30px;
-			height: 30px;
+			width:80px;
+			height: 80px;
 			text-align-last:center;
 			color: white;
 		}
 		.display_color{
 			background-color: #035aa6;
+			width:80px;
+			height: 80px;
 		}
 		.cen{
 			text-align-last:center;
 			background-color: #fcbf1e;
 
 		}
-		
+
 		.back-color{
 			background-color: #40bad5;
 			margin: 50px auto;
@@ -34,8 +37,8 @@
 <table border = 5 class="back-color">
 
 <tr>
-	<td class="display_color"align = right colspan = 4>
-		<input type ='textbox' id = 'result' width = '200px' value = 0> 
+	<td class="display_color"align = right colspan =4>
+		<input style="height:80px;width:350px;font-size:20pt" type ='textbox' id = 'result' width = '200px' value = 0>
 	</td>
 </tr>
 <tr>
@@ -84,7 +87,7 @@ function clearScreen()
 {
 	let result = document.getElementById("result");
 	let obj = e.target;
- 	
+
 	result.value = result.value + obj.textContent;
 }
 //if the clicked object is a digit */
@@ -92,7 +95,7 @@ function printSymbol(e)
 {
 	let result = document.getElementById("result");
 	let obj = e.target;
- 	
+
  	if (result.value == 0)
  		result.value = obj.textContent;
  	else
@@ -149,7 +152,7 @@ decimal.addEventListener("click", printSymbol);
 leftp.addEventListener("click", printSymbol);
 rightp.addEventListener("click", printSymbol);
 */
-clear.addEventListener("click", 
+clear.addEventListener("click",
 	() => document.getElementById("result").value = 0 );
 //clear.addEventListener("click", clearScreen);
 equal.addEventListener("click", e => result.value = eval(result.value) )
