@@ -1,0 +1,159 @@
+<html>
+<head>
+	<style>
+		body{
+			background-color: black;
+			color: white;
+			text-align: center;
+		}
+		.symbol{
+			width:30px;
+			height: 30px;
+			text-align-last:center;
+			color: white;
+		}
+		.display_color{
+			background-color: #035aa6;
+		}
+		.cen{
+			text-align-last:center;
+			background-color: #fcbf1e;
+
+		}
+		
+		.back-color{
+			background-color: #40bad5;
+			margin: 50px auto;
+		}
+	</style>
+</head>
+<body>
+<h1>Calculator</h1>
+
+
+<table border = 5 class="back-color">
+
+<tr>
+	<td class="display_color"align = right colspan = 4>
+		<input type ='textbox' id = 'result' width = '200px' value = 0> 
+	</td>
+</tr>
+<tr>
+	<td class="symbol " id = 'clear'>AC</td>
+	<td class="symbol " id = 'leftp'>(</td>
+	<td class="symbol "id = 'rightp'>)</td>
+	<td class="symbol " id = 'div'>/</td>
+</tr>
+<tr>
+	<td class="symbol" id = 'num7'>7</td>
+	<td class="symbol" id = 'num8'>8</td>
+	<td class="symbol" id = 'num9'>9</td>
+	<td class="symbol" id = 'mult'>*</td>
+</tr>
+<tr>
+	<td class="symbol" id = 'num4'>4</td>
+	<td class="symbol" id ='num5' >5</td>
+	<td class="symbol" id ='num6'>6</td>
+	<td class="symbol" id ='sub'>-</td>
+</tr>
+<tr>
+	<td class="symbol" id = 'num1'>1</td>
+	<td class="symbol" id = 'num2'>2</td>
+	<td class="symbol" id = 'num3'>3</td>
+	<td class="symbol" id = 'plus'>+</td>
+</tr>
+<tr>
+	<td class="symbol" colspan = 2 id ='num0'>0</td>
+	<td class="symbol" id = 'decimal'>.</td>
+	<td  class="cen"id = 'equal'> =</td>
+</tr>
+
+</table>
+
+
+
+<script>
+/*
+function clearScreen()
+{
+	document.getElementById("result").textContent =0;
+}
+*/
+//this prints out symbol on the calculator screen..
+/*function printSymbol(e)
+{
+	let result = document.getElementById("result");
+	let obj = e.target;
+ 	
+	result.value = result.value + obj.textContent;
+}
+//if the clicked object is a digit */
+function printSymbol(e)
+{
+	let result = document.getElementById("result");
+	let obj = e.target;
+ 	
+ 	if (result.value == 0)
+ 		result.value = obj.textContent;
+ 	else
+		result.value = result.value + obj.textContent;
+}
+let result = document.getElementById("result");
+let clear = document.getElementById("clear");
+let equal = document.getElementById("equal");
+
+let symbols=document.getElementsByClassName('symbol')
+/*
+let num0 = document.getElementById("num0");
+let num1 = document.getElementById("num1");
+let num2 = document.getElementById("num2");
+let num3 = document.getElementById("num3");
+let num4 = document.getElementById("num4");
+let num5 = document.getElementById("num5");
+let num6 = document.getElementById("num6");
+let num7 = document.getElementById("num7");
+let num8 = document.getElementById("num8");
+let num9 = document.getElementById("num9");
+let sub = document.getElementById("sub")
+let plus = document.getElementById("plus");
+let mult = document.getElementById("mult");
+let div = document.getElementById("div");
+let decimal = document.getElementById("decimal");
+let rightp = document.getElementById("rightp");
+let leftp = document.getElementById("leftp");
+*/
+
+
+/*
+let symbols=[num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,sub,plus,mult,div,decimal,clear,leftp,rightp]
+*/
+for(let i=0;i<symbols.length;i++)
+	symbols[i].addEventListener("click",printSymbol);
+
+/*
+num0.addEventListener("click", printSymbol);
+num1.addEventListener("click", printSymbol);
+num2.addEventListener("click", printSymbol);
+num3.addEventListener("click", printSymbol);
+num4.addEventListener("click", printSymbol);
+num5.addEventListener("click", printSymbol);
+num6.addEventListener("click", printSymbol);
+num7.addEventListener("click", printSymbol);
+num8.addEventListener("click", printSymbol);
+num9.addEventListener("click", printSymbol);
+sub.addEventListener("click", printSymbol);
+plus.addEventListener("click", printSymbol);
+mult.addEventListener("click", printSymbol);
+div.addEventListener("click", printSymbol);
+decimal.addEventListener("click", printSymbol);
+leftp.addEventListener("click", printSymbol);
+rightp.addEventListener("click", printSymbol);
+*/
+clear.addEventListener("click", 
+	() => document.getElementById("result").value = 0 );
+//clear.addEventListener("click", clearScreen);
+equal.addEventListener("click", e => result.value = eval(result.value) )
+</script>
+</body>
+
+</html>
